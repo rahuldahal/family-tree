@@ -1,8 +1,14 @@
 export const person = {
   id: 'SERIAL PRIMARY KEY',
-  full_name: 'VARCHAR(255) NOT NULL',
+  fullName: 'VARCHAR(255) NOT NULL',
   dob: 'DATE NOT NULL',
   photo: 'VARCHAR(255)',
-  partner_id: 'INT',
-  children: 'INT[]',
+  isAlive: 'BOOLEAN NOT NULL',
+  generationNo: 'INT NOT NULL',
+};
+
+export const child = {
+  id: 'SERIAL PRIMARY KEY',
+  parentId: 'INT REFERENCES person(id)',
+  childId: 'INT REFERENCES person(id)',
 };
